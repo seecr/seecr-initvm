@@ -21,21 +21,24 @@
 #
 ## end license ##
 
-def initvm(*modules):
-    "Init all available VMs"
-    # TODO: add parameter to selectively add certain classpaths etc.
-    import lucene
-    import importlib
-    cp = [lucene.CLASSPATH]
+from setuptools import setup
 
-    mods = []
-    for m in modules:
-        if isinstance(m, list):
-            mods.extend(m)
-        else:
-            mods.append(m)
-
-    for module in mods:
-        cp.append(importlib.import_module(module).CLASSPATH)
-
-    lucene.initVM(classpath=":".join(cp))
+setup(
+    name='seecr_initvm',
+    version='$Version: 1.0.x$'[9:-1].strip(),
+    packages=['seecr_initvm'],
+    description='Seecr initVM will initialize java VM, based on pylucene-py3',
+    long_description='Seecr initVM will initialize java VM, based on pylucene-py3',
+    author='Seecr (Seek You Too B.V.)',
+    author_email='info@seecr.nl',
+    url='https://seecr.nl',
+    license='GPLv3',
+    platforms='all',
+    classifiers=[
+        #https://pypi.python.org/pypi?%3Aaction=list_classifiers
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'Development Status :: 5 - Production/Stable',
+        'Programming Language :: Python :: 3',
+        'Topic :: Software Development :: Libraries',
+    ],
+)

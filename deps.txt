@@ -1,0 +1,2 @@
+pylucene-py3 (>= 8.9.0)
+pylucene-py3 (<< 8.10)
