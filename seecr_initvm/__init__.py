@@ -23,9 +23,10 @@
 
 def initvm(*modules):
     "Init all available VMs"
-    # TODO: add parameter to selectively add certain classpaths etc.
+
     import lucene
     import importlib
+
     cp = [lucene.CLASSPATH]
 
     mods = []
